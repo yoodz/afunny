@@ -5,7 +5,7 @@
  * @param max 最大值
  * @returns Array(n)
  */
-function getRandomArray(n, min, max) {
+function getRandomArray(n: number, min: number, max: number) {
     var arr = [];
     for (var i = min; i <= max; i++) {
         arr.push(i);
@@ -32,7 +32,7 @@ export function init() {
     }
 }
 
-function fillCell(initData, row, col) {
+function fillCell(initData: any, row: number, col: number) {
     if (row === 9) {
         return true; // 已经填完最后一行，说明成功填充完整个数独棋盘
     }
@@ -58,7 +58,7 @@ function fillCell(initData, row, col) {
     return false; // 无法找到合适的数字，回溯到上一个格子
 }
 
-function isValid(initData, row, col, num) {
+function isValid(initData: any, row: number, col: number, num: number) {
     // 检查同一行是否有重复数字
     for (let i = 0; i < 9; i++) {
         if (initData[row][i] === num) {

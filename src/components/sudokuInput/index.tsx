@@ -5,10 +5,17 @@ import s from "./index.module.css";
 
 import { Popover } from 'antd';
 
-export default function SudokuInput({ setFakeData, fakeData, i, j, initData }) {
-    const [messageApi, contextHolder] = message.useMessage();
+interface ISudokuInput {
+    setFakeData: any;
+    fakeData: any;
+    i: number;
+    j: number;
+    initData: any;
+}
 
-    function isSuccess(data) {
+export default function SudokuInput({ setFakeData, fakeData, i, j, initData }: ISudokuInput) {
+
+    function isSuccess(data: [[]]) {
         let flag = true;
         for (let i = 0; i < data.length; i++) {
             const element = data[i];
@@ -21,7 +28,7 @@ export default function SudokuInput({ setFakeData, fakeData, i, j, initData }) {
         }
         return flag;
     }
-    function handleClick(num: string) {
+    function handleClick(num: number) {
         console.log(num, initData[i][j], 'index-25')
         if (num === initData[i][j]) {
             fakeData[i][j] = num;

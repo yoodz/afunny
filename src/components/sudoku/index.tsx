@@ -1,19 +1,19 @@
 'use client';
 import { useEffect, useRef, useState } from "react";
 import cls from 'classnames';
-import * as dayjs from 'dayjs'
+import dayjs from 'dayjs';
 
 import SudokuInput from '@/components/sudokuInput';
 import s from "./index.module.css";
 
 interface ISudoInput {
     fakeData: [];
-    initData: [];
+    initData: any;
 }
 
 export default function SudoInput({ fakeData, initData }: ISudoInput) {
     const [_fakeData, setFakeData] = useState(fakeData || []);
-    const timer = useRef();
+    const timer: any = useRef();
     const [num, setNum] = useState(0);
 
     const increaseNum = () => setNum((prev) => prev + 1);
@@ -29,7 +29,7 @@ export default function SudoInput({ fakeData, initData }: ISudoInput) {
         {
             fakeData.map((item, index) => {
                 return <div className={s.row} key={index}>
-                    {item.map((item2, index2) => {
+                    {item || [].map((item2, index2) => {
                         return <div className={cls(s.item,
                             {
                                 [s.borderBottom]: [2, 5].includes(index),

@@ -7,7 +7,7 @@ import SudokuInput from '@/components/sudokuInput';
 import s from "./index.module.css";
 
 interface ISudoInput {
-    fakeData: [];
+    fakeData: any;
     initData: any;
 }
 
@@ -27,9 +27,9 @@ export default function SudoInput({ fakeData, initData }: ISudoInput) {
     return <div>
         <div className={s.timer}>用时：{dayjs(num * 1000).format('mm:ss')}</div>
         {
-            fakeData.map((item, index) => {
+            fakeData.map((item: any, index: number) => {
                 return <div className={s.row} key={index}>
-                    {item || [].map((item2, index2) => {
+                    {item.map((item2: any, index2: number) => {
                         return <div className={cls(s.item,
                             {
                                 [s.borderBottom]: [2, 5].includes(index),

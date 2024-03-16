@@ -33,7 +33,6 @@ export default function SudokuInput({ setFakeData, fakeData, i, j, initData }: I
         if (num === initData[i][j]) {
             fakeData[i][j] = num;
             setFakeData(fakeData);
-            console.log(fakeData, 'index-28')
 
             if (isSuccess(fakeData)) {
                 message.success('恭喜你完成了！');

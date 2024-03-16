@@ -6,8 +6,12 @@ import * as dayjs from 'dayjs'
 import SudokuInput from '@/components/sudokuInput';
 import s from "./index.module.css";
 
+interface ISudoInput {
+    fakeData: [];
+    initData: [];
+}
 
-export default function SudoInput({ fakeData, initData }) {
+export default function SudoInput({ fakeData, initData }: ISudoInput) {
     const [_fakeData, setFakeData] = useState(fakeData || []);
     const timer = useRef();
     const [num, setNum] = useState(0);
@@ -18,7 +22,6 @@ export default function SudoInput({ fakeData, initData }) {
         timer.current = setInterval(increaseNum, 1000); 
 
         return () => clearInterval(timer.current);
-
     }, [])
 
     return <div>
